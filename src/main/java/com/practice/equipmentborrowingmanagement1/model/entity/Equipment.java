@@ -6,16 +6,18 @@ public class Equipment {
     private String type;
     private String image;
     private int stock;
+    private boolean status;
 
     public Equipment() {
     }
 
-    public Equipment(int id, String name, String type, String image, int stock) {
+    public Equipment(int id, String name, String type, String image, int stock, boolean status) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.image = image;
         this.stock = stock;
+        this.status = status;
     }
 
     public int getId() {
@@ -56,5 +58,13 @@ public class Equipment {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

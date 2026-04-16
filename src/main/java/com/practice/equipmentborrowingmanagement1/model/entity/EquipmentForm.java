@@ -11,12 +11,13 @@ public class EquipmentForm {
     private LocalDate borrowDate;
     private LocalDate returnDate;
     private String reason;
+    private boolean status;
     private Equipment equipment;
 
     public EquipmentForm() {
     }
 
-    public EquipmentForm(int id, String fullName, String studentId, String email, int quantity, LocalDate borrowDate, LocalDate returnDate, String reason, Equipment equipment) {
+    public EquipmentForm(int id, String fullName, String studentId, String email, int quantity, LocalDate borrowDate, LocalDate returnDate, String reason, boolean status, Equipment equipment) {
         this.id = id;
         this.fullName = fullName;
         this.studentId = studentId;
@@ -25,6 +26,7 @@ public class EquipmentForm {
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
         this.reason = reason;
+        this.status = status;
         this.equipment = equipment;
     }
 
@@ -90,6 +92,14 @@ public class EquipmentForm {
 
     public void setReason(String reason) {
         this.reason = reason;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public Equipment getEquipment() {
