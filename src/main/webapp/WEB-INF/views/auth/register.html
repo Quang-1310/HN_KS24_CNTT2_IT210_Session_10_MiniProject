@@ -9,7 +9,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: Roboto;
         }
 
         body {
@@ -99,7 +99,7 @@
 
 <div class="constant-values-container">
     <h3>Đăng ký</h3>
-    <form th:action="@{/register}" th:object="${user}" method="post">
+    <form th:action="@{/auth/register}" th:object="${user}" method="post">
 
         <div class="form-group">
             <label for="username">Username</label>
