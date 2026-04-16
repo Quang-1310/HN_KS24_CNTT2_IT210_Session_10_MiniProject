@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
 <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -11,24 +13,35 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container mt-4">
-    <h2>Yêu cầu mượn từ Sinh viên</h2>
-    <a href="/admin/inventory" class="btn btn-primary mb-3">Quản lý kho</a>
-    <table class="table table-bordered">
-      <thead class="table-dark">
-      <tr>
-        <th>MSSV</th><th>Họ Tên</th><th>Ngày mượn</th><th>Số lượng</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="req : ${requests}">
-        <td th:text="${req.studentId}"></td>
-        <td th:text="${req.fullName}"></td>
-        <td th:text="${req.borrowDate}"></td>
-        <td th:text="${req.quantity}"></td>
-      </tr>
-      </tbody>
-    </table>
+  <div layout:fragment="content" class="container mt-4">
+    <div class="container">
+      <h1>Quản lý mượn trả thiết bị</h1>
+      <hr>
+      <a th:href="@{/admin/inventory}" class="btn btn-primary mb-3">Quản lý kho thiết bị</a>
+
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+          <th>Mã sinh viên</th>
+          <th>Tên sinh viên</th>
+          <th>Tên thiết bị</th>
+          <th>Ngày mượn</th>
+          <th>Số lượng</th>
+          <th>Trạng thái</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="f : ${requests}">
+          <td th:text="${f.studentId}"></td>
+          <td th:text="${f.fullName}"></td>
+          <td th:text="${f.equipment != null ? f.equipment.name : 'N/A'}"></td>
+          <td th:text="${f.borrowDate}"></td>
+          <td th:text="${f.quantity}"></td>
+          <td th:text="${f.status ? 'Đã duyệt' : 'Chờ duyệt'}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
